@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm">
+  <link name="map"/>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00323401668009599 0.0296031266709141 -0.00963499502135748"
+        rpy="0 0 0" />
+      <mass
+        value="1.64518762407501" />
+      <inertia
+        ixx="0.00886091679157101"
+        ixy="3.70441091496502E-19"
+        ixz="-9.65987600016479E-19"
+        iyy="0.0172155388314452"
+        iyz="1.44360819965159E-06"
+        izz="0.00890710483734151" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="dummy_joint" type="fixed">
+  <parent
+      link="map" />
+    <child
+      link="base_link" />
+      <origin 
+      xyz="0 0 0" 
+      rpy="-1.57 -3.14 -1.57"/>
+  </joint>
+  <link
+    name="Turn table">
+    <inertial>
+      <origin
+        xyz="-7.80438787370114E-05 -3.83003698201101E-12 0.115225359834985"
+        rpy="0 0 0" />
+      <mass
+        value="1.38494340129712" />
+      <inertia
+        ixx="0.00523144697911516"
+        ixy="-3.87086909118911E-08"
+        ixz="-1.89935083381043E-15"
+        iyy="0.00533008827325511"
+        iyz="-9.04531950887053E-15"
+        izz="0.00989085723734967" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Turn_table.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Turn_table.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="turn_table_joint"
+    type="continuous">
+    <origin
+      xyz="0.003234 -0.0086705 -0.010067"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Turn table" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_1">
+    <inertial>
+      <origin
+        xyz="-0.000798262772113211 -0.0860136846797044 -0.0343195920431005"
+        rpy="0 0 0" />
+      <mass
+        value="0.93274059210114" />
+      <inertia
+        ixx="0.00595608362862166"
+        ixy="6.66806394197065E-05"
+        ixz="2.03783960173228E-06"
+        iyy="0.00122737504378236"
+        iyz="-0.000251550476360935"
+        izz="0.00646039812737314" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link_1_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.03054 0.1685"
+      rpy="-1.5708 0.13001 0" />
+    <parent
+      link="Turn table" />
+    <child
+      link="Link_1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="0.000968949698716713 0.0957364079274093 0.0268304326156603"
+        rpy="0 0 0" />
+      <mass
+        value="0.798661552549705" />
+      <inertia
+        ixx="0.00579704539979334"
+        ixy="7.60054936847886E-05"
+        ixz="-7.45700001164039E-06"
+        iyy="0.00114593025818235"
+        iyz="0.000274275687499659"
+        izz="0.00623484782529107" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link_2_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.2 -0.07604"
+      rpy="-3.1416 0 0.087589" />
+    <parent
+      link="Link_1" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_3">
+    <inertial>
+      <origin
+        xyz="0.000868947679808052 0.0670678558391324 0.0295350207190351"
+        rpy="0 0 0" />
+      <mass
+        value="0.64322166581648" />
+      <inertia
+        ixx="0.00374738884264942"
+        ixy="4.18506618763749E-05"
+        ixz="-4.16873083751875E-06"
+        iyy="0.000986961964750892"
+        iyz="2.38990454991471E-05"
+        izz="0.00405271644832918" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link_3_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.2 -0.01204"
+      rpy="3.1416 0 1.83" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Link_3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="0" />
+  </joint>
+  <link
+    name="End effector ">
+    <inertial>
+      <origin
+        xyz="0.00104031788603032 0.00135103819167897 0.0344842321351051"
+        rpy="0 0 0" />
+      <mass
+        value="0.248527283268144" />
+      <inertia
+        ixx="0.000252397684536104"
+        ixy="5.08988241870366E-06"
+        ixz="2.04513888181073E-06"
+        iyy="0.000256875732979629"
+        iyz="1.50548096145171E-05"
+        izz="0.000228949165560373" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/End_effector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/End_effector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="end_effector_joint"
+    type="continuous">
+    <origin
+      xyz="-0.000425 0.2135 0.032"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="Link_3" />
+    <child
+      link="End effector " />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="0" />
+  </joint>
+  <link
+    name="Drive_gear">
+    <inertial>
+      <origin
+        xyz="-0.0145958196129796 -0.0276011160755074 -0.0271235026222077"
+        rpy="0 0 0" />
+      <mass
+        value="0.029771208751833" />
+      <inertia
+        ixx="1.7250989497964E-05"
+        ixy="-7.36405321631734E-06"
+        ixz="-2.61884102790633E-07"
+        iyy="4.84374067700747E-06"
+        iyz="-5.62940984651498E-07"
+        izz="2.09692331128424E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Drive_gear.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Drive_gear.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="drive_gear_joint"
+    type="continuous">
+    <origin
+      xyz="0.016171 -0.035 0.033443"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="End effector " />
+    <child
+      link="Drive_gear" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.3925"
+      upper="0.3925"
+      effort="1000"
+      velocity="0" />
+  </joint>
+  <link
+    name="Driven_gear">
+    <inertial>
+      <origin
+        xyz="0.0123711072241124 0.0294818725204622 -0.0263297232369742"
+        rpy="0 0 0" />
+      <mass
+        value="0.029075003352691" />
+      <inertia
+        ixx="1.69464030676994E-05"
+        ixy="-7.44621033573416E-06"
+        ixz="2.64759991467033E-07"
+        iyy="4.9872655610483E-06"
+        iyz="5.52173057037755E-07"
+        izz="2.08027389638918E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Driven_gear.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/Driven_gear.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Driven_gear_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.030983 0"
+      rpy="0 0 0" />
+    <parent
+      link="Drive_gear" />
+    <child
+      link="Driven_gear" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.3925"
+      upper="0.3925"
+      effort="1000"
+      velocity="0" />
+    <mimic
+      joint="drive_gear_joint"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+  <link
+    name="driven_arm">
+    <inertial>
+      <origin
+        xyz="-0.0697299804390111 0.0543034942427435 -0.019999949200001"
+        rpy="0 0 0" />
+      <mass
+        value="0.136088334889179" />
+      <inertia
+        ixx="9.44590643945596E-05"
+        ixy="9.30946002055191E-05"
+        ixz="-1.22565721752849E-20"
+        iyy="0.000220716868812276"
+        iyz="7.2873907848596E-21"
+        izz="0.000296650807635403" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/driven_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/driven_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="driven_arm_joint"
+    type="fixed">
+    <origin
+      xyz="0.0294 0.061316 -0.009"
+      rpy="0 0 3.1416" />
+    <parent
+      link="Driven_gear" />
+    <child
+      link="driven_arm" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="drive_arm">
+    <inertial>
+      <origin
+        xyz="0.0901191389989418 0.0143318503128561 -0.0204999492000001"
+        rpy="0 0 0" />
+      <mass
+        value="0.136088334504819" />
+      <inertia
+        ixx="4.51092684724043E-05"
+        ixy="6.37539097881722E-07"
+        ixz="1.11400147946878E-19"
+        iyy="0.000270066659314679"
+        iyz="-8.67864194730598E-20"
+        izz="0.000296650802520251" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/drive_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/drive_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="drive_arm_joint"
+    type="fixed">
+    <origin
+      xyz="-0.031569 -0.060312 -0.009"
+      rpy="0 0 0" />
+    <parent
+      link="Drive_gear" />
+    <child
+      link="drive_arm" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+</robot>
+
+
+
+  
